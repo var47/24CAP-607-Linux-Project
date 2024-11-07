@@ -1,0 +1,90 @@
+Step 1: Install Oracle VirtualBox
+Download Oracle VirtualBox:
+
+Go to the Oracle VirtualBox website and download the latest version for your operating system (Windows, macOS, or Linux).
+Install VirtualBox:
+
+Run the installer and follow the on-screen instructions.
+Accept the default settings unless you have specific configurations in mind.
+Once installed, launch VirtualBox.
+
+
+Step 2: Download and Install CentOS on Oracle VirtualBox
+Download the CentOS ISO:
+
+Go to the CentOS website and download the latest ISO image for CentOS.
+Create a New Virtual Machine in VirtualBox:
+
+In VirtualBox, click New.
+Name your VM (e.g., CentOS-Clock-Widget), select Linux as the type, and choose Red Hat (64-bit) as the version.
+Allocate memory (RAM) for the VM, ideally 2GB or more.
+Create a virtual hard disk (minimum 20GB recommended).
+Attach the CentOS ISO:
+
+Go to Settings > Storage.
+Under Controller: IDE, click Empty and then the disk icon to select your CentOS ISO file.
+Install CentOS:
+
+Start the VM and select the ISO image to boot.
+Choose Install CentOS Linux and follow the installation prompts:
+Set up your preferred language, keyboard, and time zone.
+Configure the installation destination and complete the installation.
+Set up a root password and create a user account if prompted.
+Complete Installation:
+
+Reboot the VM after installation completes.
+Log in to your new CentOS environment.
+
+
+Step 3: Set Up Python and Tkinter
+Open the Terminal in CentOS.
+
+Install Python 3 and Tkinter:
+
+
+Step 4: Set Up the Clock Widget Project Directory
+Create a Project Directory:
+
+
+Use a text editor (like nano or vim) to create a file named clock_widget.py and write the python code to create the clock.
+
+Save and Close the File:
+
+In nano, press CTRL + X, then Y to confirm and Enter to save.
+Step 5: Run the Clock Widget
+Execute the Script:
+
+Run the script using Python 3:
+
+python3 clock_widget.py
+
+Verify the Widget:
+
+A small window displaying the current time should appear. The time updates automatically every second.
+Step 6: Create a Desktop Entry to Launch the Clock Widget from the Applications Menu
+Create the Desktop Entry File:
+
+nano ~/.local/share/applications/clock-widget.desktop
+Add the Following Content to the File:
+
+In ini
+[Desktop Entry]
+Name=Clock Widget
+Exec=python3 /home/username/clock-widget/clock_widget.py
+Type=Application
+Terminal=false
+Categories=Utility;
+Replace /home/username/clock-widget/clock_widget.py with the actual path to clock_widget.py.
+Save and Close the File.
+
+Refresh the Applications Menu:
+
+update-desktop-database ~/.local/share/applications/
+Verify the Desktop Entry:
+
+Open the Applications menu, search for "Clock Widget," and launch it from there.
+Step 7: Optional - Customize the Clock Widget
+You can make additional customizations to the clock widget code. Here are a few ideas:
+
+Change to 24-Hour Format: Modify time.strftime("%I:%M:%S %p") to time.strftime("%H:%M:%S").
+Adjust Colors and Font Size: Change the font, fg, or bg parameters in self.time_label to suit your preferences.
